@@ -1,0 +1,26 @@
+settings:
+  file_name: 'hotels.csv'  #<== file name to read data from
+  start_point_index: 1 #<== have to start from 2nd row as first row describes all the field name
+  fields_csv_array: [ 'name', 'address', 'stars', 'contact', 'phone', 'uri'] #<== field names in the header of CSV file
+
+  monolog:
+      name: log
+      path: hotel_data_log.log
+
+  validator:                                  # <== validator of different attribute of hotels
+    name:                                     # <== field name of the attribute
+      class: 'App\Validator\NameValidator'    # <== defined validation class namespace for the attribute, optional
+    uri:
+      class: 'App\Validator\UrlValidator'
+    stars:
+      class: 'App\Validator\RateValidator'
+
+  writer:                                     # <== file writer attribute
+    xml:                                      # <== type of file
+      class: 'App\FileWriter\XmlFileWriter'   # <== class namespace of file writer
+      save_file: 'hotel_data.xml'             # <== defined name of written file, if not defined from user
+      ext: '.xml'                             # <== defined extension of written file
+    yaml:
+      class: 'App\FileWriter\YamlFileWriter'
+      save_file: 'hotel_data.yml'
+      ext: '.yml'
