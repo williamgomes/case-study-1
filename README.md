@@ -1,4 +1,4 @@
-<h2 align="center">Trivago Case Study</h2>
+<h2 align="center">Case Study</h2>
 
 ## Installation
 
